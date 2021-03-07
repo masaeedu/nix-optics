@@ -19,7 +19,7 @@ rec {
     # :: (a' -> a) -> (->) a b -> (->) a' b
     lmap = f: dimap f id;
 
-    # :: (b -> b') -> (->) a b -> (->) a' b'
+    # :: (b -> b') -> (->) a b -> (->) a b'
     rmap = g: dimap id g;
 
     # :: (->) a b -> (->) (a /\ x) (b /\ x)
