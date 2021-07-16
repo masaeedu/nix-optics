@@ -28,6 +28,15 @@ rec {
     # :: (->) a b -> (->) (x /\ a) (x /\ b)
     second = f: { fst, snd }: { inherit fst; snd = f snd; };
 
+    # :: (a -> b -> c) -> b -> a -> c
+    flip = f: x: y: f y x;
+
+    # :: (a -> a) -> a
+    fix = f: let x = f x; in x;
+
+    # :: (a -> a -> a) -> a -> a
+    fix1 = fn.compose fix;
+
     inherit (category fn) pipe;
   };
 
